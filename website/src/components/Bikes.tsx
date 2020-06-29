@@ -17,7 +17,7 @@ export const Bikes: React.FC<Props> = () => {
 
     return (
         <div className="BikeStations" style={{ margin: 0, textAlign: "center"}}>
-            <h3>Byskykkel</h3>
+            <h3>Bysykkel</h3>
             {bikeStations.map(stationData => (
                 <BikeStation station={stationData} key={stationData.id}/>
             ))}
@@ -26,7 +26,7 @@ export const Bikes: React.FC<Props> = () => {
 }
 
 interface StationProps {
-    station: String
+    station: any
 }
 
 const BikeStation: React.FC<StationProps> = ({ station }) => {
