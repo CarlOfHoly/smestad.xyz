@@ -15,7 +15,6 @@ export const Bikes: React.FC<Props> = () => {
             .then((data) => setBikeStations(data))
     }, []);
 
-    console.log(bikeStations)
     return (
         <div className="BikeStations" style={{ margin: 0, textAlign: "center"}}>
             <h3>Byskykkel</h3>
