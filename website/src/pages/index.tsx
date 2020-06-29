@@ -1,6 +1,5 @@
 import React from "react"
 import Header from "../components/header";
-import { Reddit } from "../components/Reddit"
 import { Link } from "gatsby"
 
 const IndexPage: React.FC = () => (
