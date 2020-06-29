@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{"+wGG":function(e,t,n){"use strict";n.r(t),n.d(t,"query",(function(){return u}));var a=n("q1tI"),r=n.n(a),c=n("Wbzz"),o=n("Bl7J"),i=n("vrFN");t.default=function(){return r.a.createElement(o.a,null,r.a.createElement(i.a,{title:"Using TypeScript"}),r.a.createElement(c.Link,{to:"/"},"Go back to the homepage"))};var u="2907560070"}}]);
+//# sourceMappingURL=component---src-pages-using-typescript-tsx-e39ca58f76511ee870a0.js.map
