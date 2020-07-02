@@ -1,13 +1,9 @@
 import React from "react"
-import Header from "../components/header";
-import { Link } from "gatsby"
+import "./index.css"
 
 const IndexPage: React.FC = () => (
     <div>
-        <Header siteTitle="Checking out Gatsby"/>
-        <h1>
-            <Link to="/infoscreen" >INFOSKJERM</Link>
-        </h1>
+        <h1 className="title">Hello!</h1>
     </div>
 ) 
 
