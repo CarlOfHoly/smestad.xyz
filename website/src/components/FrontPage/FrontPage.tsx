@@ -1,5 +1,6 @@
 import React from "react"
 import "@fortawesome/fontawesome-free/js/all.js"
+import "./FrontPage.css"
 
 interface Props {}
 
