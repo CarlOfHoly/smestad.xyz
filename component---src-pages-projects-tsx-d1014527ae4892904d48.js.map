@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/pages/projects.tsx"],"names":["projects"],"mappings":"2FAAA,gCAMeA,UAJY,WACzB,OAAO","file":"component---src-pages-projects-tsx-d1014527ae4892904d48.js","sourcesContent":["import React from \"react\"\n\nconst projects: React.FC = () => {\n  return <div></div>\n}\n\nexport default projects\n"],"sourceRoot":""}
