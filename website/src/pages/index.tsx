@@ -4,7 +4,7 @@ import Header from "../components/Header/Header"
 import FrontPage from "../components/FrontPage/FrontPage"
 
 const IndexPage: React.FC = () => (
-  <div>
+  <div className="index">
     <Header />
     <FrontPage />
   </div>
