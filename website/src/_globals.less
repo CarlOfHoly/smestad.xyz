@@ -18,8 +18,9 @@ Mixins
 }
 
 .background(@show-home-image) when (@show-home-image = true) {
-  height: 100%;
   background: @home-image;
+  background-attachment: fixed;
+  background-size: cover;
 }
 /*
 ----------
