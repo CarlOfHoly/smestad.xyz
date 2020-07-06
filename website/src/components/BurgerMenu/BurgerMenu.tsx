@@ -1,13 +1,17 @@
-import React from 'react'
+import React from "react"
+import "./BurgerMenu.css"
 
 interface Props {
-
+  click: any
+  show: boolean
 }
 
-export const BurgerMenu: React.FC<Props> = () => {
-        return (<div className="menu-btn">
-            <div className="btn-line"></div>
-            <div className="btn-line"></div>
-            <div className="btn-line"></div>
-        </div>);
+export const BurgerMenu: React.FC<Props> = ({ click, show }) => {
+  return (
+    <div onClick={click} className={"menu-btn " + (show ? "show" : "false")}>
+      <div className="btn-line"></div>
+      <div className="btn-line"></div>
+      <div className="btn-line"></div>
+    </div>
+  )
 }
