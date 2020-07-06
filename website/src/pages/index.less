@@ -18,5 +18,19 @@ html,
 
 .index {
   height: 100%;
-  .background(@show-home-image);
+  & when (@show-home-image=true) {
+    background: url(../images/wallpaper.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(@primary-color, @background-opacity);
 }
