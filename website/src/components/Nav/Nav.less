@@ -51,4 +51,17 @@
       border: solid 3px @secondary-color;
     }
   }
+
+  .nav-item {
+    transform: translate3d(600px, 0, 0);
+    .easeOut();
+
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+  }
 }
+
+each(range(5),{
+    .nav-item:nth-child(@{value}) {transition-delay: @value * 0.1s; }
+});
