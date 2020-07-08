@@ -15,17 +15,25 @@ const Nav: React.FC<Props> = ({ show }) => {
         <div className="portrait"></div>
       </div>
       <ul className={"menu-nav " + showItem}>
-        <li className={"nav-item " + showItem}>
-          <Link to="/">Home</Link>
+        <li className={"nav-item  " + showItem}>
+          <Link className="nav-link current" to="/">
+            Home
+          </Link>
         </li>
         <li className={"nav-item " + showItem}>
-          <Link to="/about">About</Link>
+          <Link className="nav-link" to="/about">
+            About
+          </Link>
         </li>
         <li className={"nav-item " + showItem}>
-          <Link to="/projects">Projects</Link>
+          <Link className="nav-link" to="/projects">
+            Projects
+          </Link>
         </li>
         <li className={"nav-item " + showItem}>
-          <Link to="/contact">Contact</Link>
+          <Link className="nav-link" to="/contact">
+            Contact
+          </Link>
         </li>
       </ul>
     </nav>
