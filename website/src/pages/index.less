@@ -12,8 +12,7 @@ html,
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: @primary-color;
-
-  color: @white;
+  color: @textColor;
   line-height: 1.5;
 }
 
@@ -21,6 +20,7 @@ html,
   height: 100%;
   & when (@show-home-image=true) {
     background: url(../images/wallpaper.jpg);
+
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
