@@ -17,6 +17,13 @@ Mixins
   transition: all 0.5s ease-out;
 }
 
+.setTextColor(@primary-color) when (lightness(@primary-color) > 40) {
+  @textColor: #000;
+}
+.setTextColor(@primary-color) when (lightness(@primary-color) =< 40) {
+  @textColor: @white;
+}
+.setTextColor(@primary-color);
 /*
 ----------
 Variables
