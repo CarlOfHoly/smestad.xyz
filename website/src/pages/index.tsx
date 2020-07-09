@@ -6,7 +6,7 @@ import FrontPage from "../components/FrontPage/FrontPage"
 const IndexPage: React.FC = () => (
   <div className="index">
     <div className="overlay">
-      <Header />
+      <Header pathname={location.pathname} />
       <FrontPage />
     </div>
   </div>
