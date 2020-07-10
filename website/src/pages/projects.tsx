@@ -1,14 +1,10 @@
 import React from "react"
 import Header from "../components/Header/Header"
 
-interface Props {
-  location: { pathname: string }
-}
-
-const projects: React.FC<Props> = ({ location }) => {
+const projects: React.FC = () => {
   return (
     <div>
-      <Header pathname={location.pathname} />
+      <Header />
     </div>
   )
 }
