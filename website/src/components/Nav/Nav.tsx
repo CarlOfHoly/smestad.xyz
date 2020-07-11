@@ -4,36 +4,39 @@ import "./Nav.css"
 
 interface Props {
   show: boolean
-  pathname: string
 }
 
-const Nav: React.FC<Props> = ({ pathname, show }) => {
+const Nav: React.FC<Props> = ({ show }) => {
   const showItem = show ? "show" : "close"
-  const isCurrent = path => (path == pathname ? "current" : "")
 
   return (
     <nav className={"menu " + showItem}>
       <ul className={"menu-nav " + showItem}>
         <li className={"nav-item  " + showItem}>
-          <Link className={"nav-link " + isCurrent("/")} to={"/"}>
+          <Link className={"nav-link "} to={"/"} activeClassName="current">
             Home
           </Link>
         </li>
         <li className={"nav-item " + showItem}>
-          <Link className={"nav-link " + isCurrent("/about")} to={"/about"}>
+          <Link className={"nav-link "} to={"/about"} activeClassName="current">
             About
           </Link>
         </li>
         <li className={"nav-item " + showItem}>
           <Link
-            className={"nav-link " + isCurrent("/projects")}
+            className={"nav-link "}
             to={"/projects"}
+            activeClassName="current"
           >
             Projects
           </Link>
         </li>
         <li className={"nav-item " + showItem}>
-          <Link className={"nav-link " + isCurrent("/contact")} to={"/contact"}>
+          <Link
+            className={"nav-link "}
+            to={"/contact"}
+            activeClassName="current"
+          >
             Contact
           </Link>
         </li>
