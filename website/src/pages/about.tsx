@@ -1,13 +1,9 @@
 import React from "react"
 import "./about.css"
-import Header from "../components/Header/Header"
+import Layout from "../components/layout"
 
 const about: React.FC = () => {
-  return (
-    <div>
-      <Header />
-    </div>
-  )
+  return <Layout>About</Layout>
 }
 
 export default about
