@@ -40,6 +40,15 @@ const Nav: React.FC<Props> = ({ show }) => {
             Contact
           </Link>
         </li>
+        <li className={"nav-item " + showItem}>
+          <Link
+            className={"nav-link "}
+            to={"/practice"}
+            activeClassName="current"
+          >
+            Practice
+          </Link>
+        </li>
       </ul>
     </nav>
   )
