@@ -7,12 +7,13 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ["@typescript-eslint", "react", "jsx-a11y"],
+  plugins: ["react-hooks", "@typescript-eslint", "react", "jsx-a11y"],
   env: {
     browser: true,
     node: true,
   },
   extends: [
+    "plugin:react-hooks/recommended",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
@@ -28,5 +29,7 @@ module.exports = {
   },
   rules: {
     "react/prop-types": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
   },
 }
