@@ -1,35 +1,45 @@
 import React, { useState, useEffect } from "react"
 import "./Hooks.css"
+import { useForm } from "./useForm"
+import { Hello } from "./Hello"
+import { useFetch } from "./useFetch"
 
 const Hooks: React.FC = () => {
-  const [{ count1, count2 }, setCount] = useState({ count1: 10, count2: 20 })
+  const [values, handleChange] = useForm({
+    email: "",
+    password: "",
+    firstName: "",
+  })
+  // const [showHello, setShowHello] = useState(true)
 
+  const { data, loading } = useFetch("http://numbersapi.com/43/trivia")
+  console.log(data)
   return (
     <div className="hooks-practice">
-      <button
-        className="button"
-        onClick={() =>
-          setCount(currentCount => ({
-            ...currentCount,
-            count1: currentCount.count1 + 1,
-          }))
-        }
-      >
-        Inc counter
-      </button>
-      <div className="count">{count1}</div>
-      <div className="count">{count2}</div>
-      <button
-        className="button"
-        onClick={() =>
-          setCount(currentCount => ({
-            ...currentCount,
-            count2: currentCount.count2 + 1,
-          }))
-        }
-      >
-        Inc counter
-      </button>
+      <div>{loading ? "loading ...." : data}</div>
+      {/* <button onClick={() => setShowHello(!showHello)}>Helo</button>
+      {showHello ? <Hello /> : null} */}
+      <input
+        type="text"
+        className="email"
+        name="email"
+        value={values.email}
+        onChange={handleChange}
+      />
+      <input
+        type="text"
+        className="firstName"
+        name="firstName"
+        value={values.firstName}
+        onChange={handleChange}
+      />
+      <input
+        type="password"
+        className="password"
+        name="password"
+        value={values.password}
+        onChange={handleChange}
+      />
     </div>
   )
 }
