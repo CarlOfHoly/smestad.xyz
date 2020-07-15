@@ -8,12 +8,28 @@ const Hooks: React.FC = () => {
     <div className="hooks-practice">
       <button
         className="button"
-        onClick={() => setCount(currentCount => currentCount + 1)}
+        onClick={() =>
+          setCount(currentCount => ({
+            ...currentCount,
+            count1: currentCount.count1 + 1,
+          }))
+        }
       >
         Inc counter
       </button>
       <div className="count">{count1}</div>
       <div className="count">{count2}</div>
+      <button
+        className="button"
+        onClick={() =>
+          setCount(currentCount => ({
+            ...currentCount,
+            count2: currentCount.count2 + 1,
+          }))
+        }
+      >
+        Inc counter
+      </button>
     </div>
   )
 }
