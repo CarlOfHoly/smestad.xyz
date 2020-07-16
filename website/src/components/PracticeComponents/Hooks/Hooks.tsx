@@ -12,12 +12,24 @@ const Hooks: React.FC = () => {
   })
   // const [showHello, setShowHello] = useState(true)
 
-  const { data, loading } = useFetch("http://numbersapi.com/43/trivia")
-  console.log(data)
+  const [count, setCount] = useState(() =>
+    JSON.parse(localStorage.getItem("count"))
+  )
+
+  const { data, loading } = useFetch(`http://numbersapi.com/${count}/trivia`)
+
+  useEffect(() => {
+    localStorage.setItem("count", JSON.stringify(count))
+  }, [count])
+
   return (
     <div className="hooks-practice">
-      <div>{loading ? "loading ...." : data}</div>
-      {/* <button onClick={() => setShowHello(!showHello)}>Helo</button>
+      <div>{!data ? "loading ...." : data}</div>
+      Count: {count}
+      <button className="button" onClick={() => setCount(c => c + 1)}>
+        Increment count
+      </button>
+      {/* <button onClick={() => setShowHello(!showHello)}>Hello</button>
       {showHello ? <Hello /> : null} */}
       <input
         type="text"
