@@ -1,15 +1,8 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 
 export const Hello: React.FC = () => {
-  useEffect(() => {
-    const onMouseMove = e => {
-      console.log(e)
-    }
-    window.addEventListener("mousemove", onMouseMove)
+  const renders = useRef(0)
 
-    return () => {
-      window.removeEventListener("mousemove", onMouseMove)
-    }
-  }, [])
+  console.log("hello renders: ", renders.current++)
   return <h1>Hello</h1>
 }

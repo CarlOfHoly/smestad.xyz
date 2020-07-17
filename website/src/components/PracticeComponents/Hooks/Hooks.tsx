@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import "./Hooks.css"
 import { useForm } from "./useForm"
 import { Hello } from "./Hello"
@@ -10,11 +10,12 @@ const Hooks: React.FC = () => {
     password: "",
     firstName: "",
   })
-  // const [showHello, setShowHello] = useState(true)
+  const [showHello, setShowHello] = useState(true)
 
   const [count, setCount] = useState(() =>
     JSON.parse(localStorage.getItem("count"))
   )
+  const inputRef = useRef()
 
   const { data, loading } = useFetch(`http://numbersapi.com/${count}/trivia`)
 
@@ -29,9 +30,11 @@ const Hooks: React.FC = () => {
       <button className="button" onClick={() => setCount(c => c + 1)}>
         Increment count
       </button>
-      {/* <button onClick={() => setShowHello(!showHello)}>Hello</button>
-      {showHello ? <Hello /> : null} */}
+      <button onClick={() => setShowHello(!showHello)}>Hello</button>
+      {showHello ? <Hello /> : null}
       <input
+        ref={inputRef}
+        placeholder="email"
         type="text"
         className="email"
         name="email"
@@ -52,6 +55,9 @@ const Hooks: React.FC = () => {
         value={values.password}
         onChange={handleChange}
       />
+      <button className="button" onClick={() => console.log(inputRef.current)}>
+        Focus
+      </button>
     </div>
   )
 }
