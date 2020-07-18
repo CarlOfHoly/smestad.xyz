@@ -1,5 +1,13 @@
 import React from "react"
+import Loader from "./Loader"
+import "./Animations.css"
 
-const Scroll: React.FC = () => <div></div>
+const Animations: React.FC = () => {
+  return (
+    <div className="animations">
+      <Loader />
+    </div>
+  )
+}
 
-export default Scroll
+export default Animations
