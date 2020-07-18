@@ -16,6 +16,7 @@
     "gatsby-plugin-typescript": "^2.4.8",
     "gatsby-source-filesystem": "^2.3.13",
     "gatsby-transformer-sharp": "^2.5.6",
+    "gsap": "^3.4.0",
     "less": "^3.11.3",
     "less-plugin-npm-import": "^2.1.0",
     "less-watch-compiler": "^1.14.6",
