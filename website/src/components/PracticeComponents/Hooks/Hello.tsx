@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useRef } from "react"
 
 export const Hello: React.FC = () => {
   const renders = useRef(0)

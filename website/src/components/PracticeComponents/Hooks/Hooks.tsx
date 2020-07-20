@@ -18,6 +18,7 @@ const Hooks: React.FC = () => {
   const inputRef = useRef()
 
   const { data, loading } = useFetch(`http://numbersapi.com/${count}/trivia`)
+  console.log(loading)
 
   useEffect(() => {
     localStorage.setItem("count", JSON.stringify(count))
