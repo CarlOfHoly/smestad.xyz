@@ -6,6 +6,7 @@ set -e
 # Pipe our environmental SSH key variable into a file
 mkdir -p $HOME/.ssh
 echo "${deploy_key}" > $HOME/.ssh/deploy_key
+echo "${ls $HOME/.ssh/}"
 chmod 600 $HOME/.ssh/deploy_key # SSH keys need to be readonly
 
 # Where to deploy our site on our server
