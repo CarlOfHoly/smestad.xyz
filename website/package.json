@@ -65,7 +65,7 @@
     "ghpages": "gatsby build --prefix-paths && gh-pages -d public",
     "start:css": "less-watch-compiler --config less.json",
     "build:css": "less-watch-compiler --run-once --config less.json",
-    "deploy": "gatsby build --prefix-paths && scp -r public root@smestad.xyz:/var/www/cabin/"
+    "deploy": "gatsby build && scp -r public root@smestad.xyz:/var/www/cabin/"
   },
   "repository": {
     "type": "git",
