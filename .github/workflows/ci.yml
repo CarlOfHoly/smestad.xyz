@@ -26,7 +26,7 @@ jobs:
         working-directory: website
 
       - name: Build application
-        run: npm run build
+        run: gatsby build
         working-directory: website
 
       - name: Deploy

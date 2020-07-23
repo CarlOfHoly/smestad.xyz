@@ -7,6 +7,7 @@ chmod 600 $HOME/.ssh/deploy_key # SSH keys need to be readonly
 
 target="/var/www/cabin/"
 
+echo "Jeg kom hit"
 sh -c "rsync -azh -e 'ssh -i $HOME/.ssh/deploy_key -o StrictHostKeyChecking=no' public/* --rsync-path='mkdir -p ${target} && rsync' root@smestad.xyz:${target}"
 
 rm $HOME/.ssh/deploy_key
