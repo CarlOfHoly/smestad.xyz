@@ -28,3 +28,9 @@ jobs:
       - name: Build application
         run: npm run build
         working-directory: website
+
+      - name: Deploy
+        run: docker-compose run deploy
+        if: github.ref == 'refs/heads/master'
+        env:
+          DEPLOY_KEY: ${{ secrets.deploy_key}}
