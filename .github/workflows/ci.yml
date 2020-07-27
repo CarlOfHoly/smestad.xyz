@@ -25,6 +25,13 @@ jobs:
         run: npm run test
         working-directory: website
 
-      - name: Build application
-        run: npm run build
+      - name: Build and deploy application
         working-directory: website
+        run: |
+          npm run build
+          mkdir ~/.ssh
+          echo "$DEPLOY_KEY" > ~/.ssh/gh_actions_key
+          chmod 600 ~/.ssh/gh_actions_key 
+          rsync -avz -e "ssh -i ~/.ssh/gh_actions_key -o StrictHostKeyChecking=no" public/ root@smestad.xyz:/var/www/cabin/
+        env:
+          DEPLOY_KEY: ${{ secrets.deploy_key }}
