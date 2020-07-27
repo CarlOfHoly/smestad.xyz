@@ -27,11 +27,15 @@ jobs:
 
       - name: Build and deploy application
         working-directory: website
+        env:
+          remote_key: ${{ secrets.deploy_key }}
+          remote_host: ${{ secrets.deploy_host }}
+          remote_user: ${{ secrets.deploy_user }}
+          local_dir: "public/"
+          remote_dir: "/var/www/cabin/public/"
         run: |
           npm run build
           mkdir ~/.ssh
-          echo "$DEPLOY_KEY" > ~/.ssh/gh_actions_key
+          echo "$remote_key" > ~/.ssh/gh_actions_key
           chmod 600 ~/.ssh/gh_actions_key 
-          rsync -avz -e "ssh -i ~/.ssh/gh_actions_key -o StrictHostKeyChecking=no" public/ root@smestad.xyz:/var/www/cabin/public
-        env:
-          DEPLOY_KEY: ${{ secrets.deploy_key }}
+          rsync -avzr --delete -e "ssh -i ~/.ssh/gh_actions_key -o StrictHostKeyChecking=no" ${local_dir} ${remote_user}@${remote_host}:${remote_dir}
