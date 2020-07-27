@@ -32,6 +32,6 @@ jobs:
           mkdir ~/.ssh
           echo "$DEPLOY_KEY" > ~/.ssh/gh_actions_key
           chmod 600 ~/.ssh/gh_actions_key 
-          rsync -avz -e "ssh -i ~/.ssh/gh_actions_key -o StrictHostKeyChecking=no" public/ root@smestad.xyz:/var/www/cabin/
+          rsync -avz -e "ssh -i ~/.ssh/gh_actions_key -o StrictHostKeyChecking=no" public/ root@smestad.xyz:/var/www/cabin/public
         env:
           DEPLOY_KEY: ${{ secrets.deploy_key }}
