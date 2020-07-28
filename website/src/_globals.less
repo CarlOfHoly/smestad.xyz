@@ -4,8 +4,8 @@ Colours
 ----------
 */
 
-@primary-color: #062041;
-@secondary-color: #020c18;
+@primary-color: #020c18;
+@secondary-color: #062041;
 @white: #fff;
 
 /*
@@ -25,6 +25,19 @@ Mixins
 }
 .setTextColor(@primary-color);
 
+.gradient(@type; @colors; @dir: 0deg; @prefixes: webkit, moz, ms, o; @index: length(@prefixes))
+  when
+  (@index > 0) {
+  .gradient(@type; @colors; @dir; @prefixes; (@index - 1));
+
+  @prefix: extract(@prefixes, @index);
+  @dir-old: 90 - (@dir);
+
+  background-image: ~"-@{prefix}-@{type}-gradient(@{dir-old}, @{colors})";
+  & when ( @index = length(@prefixes) ) {
+    background-image: ~"@{type}-gradient(@{dir}, @{colors})";
+  }
+}
 /*
 ----------
 Variables
@@ -37,3 +50,9 @@ Variables
 @mediaLgMin: 769px;
 @mediaLgMax: 1170px;
 @mediaXlMin: 1171px;
+
+/*
+----------
+Fonts
+----------
+*/

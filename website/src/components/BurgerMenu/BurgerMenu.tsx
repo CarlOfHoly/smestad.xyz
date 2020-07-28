@@ -1,9 +1,9 @@
 import React from "react"
-import "./BurgerMenu.css"
+import "../../../css/components/BurgerMenu/BurgerMenu.css"
 
 interface Props {
-  click: any;
-  show: boolean;
+  click: any
+  show: boolean
 }
 
 export const BurgerMenu: React.FC<Props> = ({ click, show }) => {

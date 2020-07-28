@@ -65,6 +65,7 @@
     "ghpages": "gatsby build --prefix-paths && gh-pages -d public",
     "start:css": "less-watch-compiler --config less.json",
     "build:css": "less-watch-compiler --run-once --config less.json",
+    "remove:css": "find src -type f -name '*.css' -delete",
     "deploy": "gatsby build && scp -r public root@smestad.xyz:/var/www/cabin/"
   },
   "repository": {

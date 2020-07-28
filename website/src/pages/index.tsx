@@ -1,35 +1,20 @@
 import React from "react"
 import Layout from "../components/layout"
-import ReactFullpage from "@fullpage/react-fullpage"
-import "./index.css"
+import FullPage from "../components/FullPage/FullPage"
+import Page from "../components/FullPage/Page"
+
+import "../../css/pages/global.css"
+import "../../css/pages/index.css"
 
 const IndexPage: React.FC = () => {
   return (
     <Layout>
-      <ReactFullpage
-        scrollingSpeed={1000}
-        render={({ fullpageApi }) => {
-          return (
-            <ReactFullpage.Wrapper>
-              <div className="section">
-                <p>Section 1 (welcome to fullpage.js)</p>
-                <button onClick={() => fullpageApi.moveSectionDown()}>
-                  Click me to move down
-                </button>
-              </div>
-              <div className="section">
-                <p>Section 2</p>
-              </div>
-              <div className="section">
-                <p>Section 3</p>
-              </div>
-              <div className="section">
-                <p>Section 4</p>
-              </div>
-            </ReactFullpage.Wrapper>
-          )
-        }}
-      />
+      <FullPage scrollingSpeed={1500}>
+        <Page title="Carl Smestad" titlePosition="left" />
+        <Page title="About Me" titlePosition="right" />
+        <Page title="My Projects" titlePosition="left" />
+        <Page title="Contact Me" titlePosition="left" />
+      </FullPage>
     </Layout>
   )
 }

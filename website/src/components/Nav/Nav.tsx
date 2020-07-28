@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import "./Nav.css"
+import "../../../css/components/Nav/Nav.css"
 
 interface Props {
   show: boolean
