@@ -1,6 +1,6 @@
 import React from "react"
 import Loader from "./Loader"
-import "./Animations.css"
+import "../../../../css/components/PracticeComponents/GSAP/Animations.css"
 
 const Animations: React.FC = () => {
   return (

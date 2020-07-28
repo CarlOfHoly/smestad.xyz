@@ -70,3 +70,4 @@ yarn-error.log
 
 #CSS files
 *.css
+css/
