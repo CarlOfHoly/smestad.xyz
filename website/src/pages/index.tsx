@@ -8,7 +8,7 @@ const IndexPage: React.FC = () => {
     <Layout>
       <ReactFullpage
         scrollingSpeed={1000}
-        render={({ state, fullpageApi }) => {
+        render={({ fullpageApi }) => {
           return (
             <ReactFullpage.Wrapper>
               <div className="section">

@@ -12,7 +12,6 @@
     "gatsby-image": "^2.4.8",
     "gatsby-plugin-manifest": "^2.4.13",
     "gatsby-plugin-offline": "^3.2.12",
-    "gatsby-plugin-portal": "^1.0.7",
     "gatsby-plugin-react-helmet": "^3.3.5",
     "gatsby-plugin-sharp": "^2.6.13",
     "gatsby-plugin-typescript": "^2.4.8",
@@ -66,7 +65,7 @@
     "ghpages": "gatsby build --prefix-paths && gh-pages -d public",
     "start:css": "less-watch-compiler --config less.json",
     "build:css": "less-watch-compiler --run-once --config less.json",
-    "deploy": "gatsby build --prefix-paths && scp -r public root@smestad.xyz:/var/www/cabin/"
+    "deploy": "gatsby build && scp -r public root@smestad.xyz:/var/www/cabin/"
   },
   "repository": {
     "type": "git",
