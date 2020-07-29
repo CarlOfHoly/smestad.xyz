@@ -3,7 +3,6 @@ import Layout from "../components/layout"
 import FullPage from "../components/FullPage/FullPage"
 import Page from "../components/FullPage/Page"
 
-import "../../css/pages/global.css"
 import "../../css/pages/index.css"
 
 const IndexPage: React.FC = () => {

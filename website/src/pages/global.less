@@ -12,7 +12,17 @@ html,
   height: 100%;
   margin: 0;
   font-family: "Roboto", sans-serif;
-  color: @textColor;
-  .gradient(linear; @primary-color, @secondary-color);
   line-height: 1.5;
+}
+
+.layout {
+  .easeOut();
+  &.dark_theme {
+    .gradient(linear; @primary-dark-color, @secondary-dark-color);
+    color: @snow-storm-1;
+  }
+  &.light_theme {
+    .gradient(linear; @snow-storm-1, @snow-storm-3);
+    color: @primary-dark-color;
+  }
 }
