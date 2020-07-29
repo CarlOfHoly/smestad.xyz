@@ -36,14 +36,6 @@ Mixins
   transition: all 0.5s ease-out;
 }
 
-.setTextColor(@primary-color) when (lightness(@primary-color) > 40) {
-  @textColor: #000;
-}
-.setTextColor(@primary-color) when (lightness(@primary-color) =< 40) {
-  @textColor: @white;
-}
-.setTextColor(@primary-color);
-
 .gradient(@type; @colors; @dir: 0deg; @prefixes: webkit, moz, ms, o; @index: length(@prefixes))
   when
   (@index > 0) {
