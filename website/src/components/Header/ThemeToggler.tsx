@@ -1,14 +1,20 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Sun, Moon } from "react-feather"
+import { ThemeContext } from "./ThemeContext"
 
-interface Props {
-  on: boolean
-  toggle: () => void
-}
-const ThemeToggler: React.FC<Props> = ({ on, toggle }) => {
+const ThemeToggler: React.FC = () => {
+  const { setTheme } = useContext(ThemeContext)
+
+  const changeTheme = () => {
+    console.log("Changing theme to light theme")
+    setTheme(prevTheme =>
+      prevTheme === "dark_mode" ? "light_mode" : "dark_mode"
+    )
+  }
+
   return (
-    <button type="button" role="switch" onClick={toggle}>
-      {on ? <Sun /> : <Moon />}
+    <button type="button" role="switch" onClick={changeTheme}>
+      {<Sun />}
     </button>
   )
 }
