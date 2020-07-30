@@ -1,5 +1,4 @@
 import React, { useContext } from "react"
-import { Sun, Moon } from "react-feather"
 import { ThemeContext } from "./ThemeContext"
 import { FormGroup, FormControlLabel, Switch } from "@material-ui/core"
 import "../../../css/components/Theme/ThemeToggler.css"

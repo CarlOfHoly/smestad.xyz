@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 
 const ThemeContextDefaultValue = {
   theme: "dark-mode",
-  setTheme: (theme: any) => {},
+  setTheme: (_theme: any) => {},
 }
 export const ThemeContext = React.createContext(ThemeContextDefaultValue)
 
