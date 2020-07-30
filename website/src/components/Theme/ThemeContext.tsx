@@ -10,11 +10,20 @@ interface Props {
   children?: React.ReactNode
 }
 
+const windowGlobal = typeof window !== "undefined" && window
+
 const ThemeContextProvider: React.FC<Props> = ({ children }) => {
-  const [theme, setTheme] = useState(JSON.parse(localStorage.getItem("theme")))
+  const fetchThemeFromLocalStorage = () => {
+    try {
+      return JSON.parse(windowGlobal.localStorage.getItem("theme"))
+    } catch (e) {
+      return ThemeContextDefaultValue.theme
+    }
+  }
+  const [theme, setTheme] = useState(fetchThemeFromLocalStorage)
 
   useEffect(() => {
-    localStorage.setItem("theme", JSON.stringify(theme))
+    windowGlobal.localStorage.setItem("theme", JSON.stringify(theme))
   }, [theme])
 
   return (
