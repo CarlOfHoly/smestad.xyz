@@ -9,8 +9,10 @@ const Page: React.FC<Props> = ({ title, titlePosition }) => {
   const newTitle = title.split(" ")
   return (
     <div className={"page " + titlePosition}>
-      {newTitle.map(title => (
-        <h1 className="title">{title.toUpperCase()}</h1>
+      {newTitle.map((title, index) => (
+        <h1 key={index} className="title">
+          {title.toUpperCase()}
+        </h1>
       ))}
     </div>
   )
