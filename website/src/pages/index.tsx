@@ -1,10 +1,10 @@
-import React, { useContext } from "react"
-import Layout from "../components/layout"
+import React from "react"
+import Layout from "../components/Layout/layout"
 import FullPage from "../components/FullPage/FullPage"
 import Page from "../components/FullPage/Page"
-import ThemeContextProvider, {
-  ThemeContext,
-} from "../components/Header/ThemeContext"
+import ThemeContextProvider from "../components/Theme/ThemeContext"
+
+import "../../css/pages/global.css"
 
 const IndexPage: React.FC = () => {
   return (

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { BurgerMenu } from "../BurgerMenu/BurgerMenu"
 import Nav from "../Nav/Nav"
-import ThemeToggler from "./ThemeToggler"
+import ThemeToggler from "../Theme/ThemeToggler"
 
 const Header: React.FC = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false)
