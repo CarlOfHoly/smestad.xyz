@@ -1,27 +1,26 @@
 import React, { useContext } from "react"
 import { Sun, Moon } from "react-feather"
 import { ThemeContext } from "./ThemeContext"
-
+import { FormGroup, FormControlLabel, Switch } from "@material-ui/core"
 import "../../../css/components/Theme/ThemeToggler.css"
 
 const ThemeToggler: React.FC = () => {
-  const { setTheme } = useContext(ThemeContext)
+  const { theme, setTheme } = useContext(ThemeContext)
 
   const changeTheme = () => {
     setTheme(prevTheme =>
-      prevTheme === "dark_mode" ? "light_mode" : "dark_mode"
+      prevTheme === "dark-mode" ? "light-mode" : "dark-mode"
     )
   }
+  const isDarkMode = theme === "dark-mode"
 
   return (
-    <button
-      className="theme-toggler"
-      type="button"
-      role="switch"
-      onClick={changeTheme}
-    >
-      {<Sun />}
-    </button>
+    <FormGroup className="theme-toggler">
+      <FormControlLabel
+        control={<Switch checked={isDarkMode} onChange={changeTheme} />}
+        label={isDarkMode ? "dark mode" : "light mode"}
+      />
+    </FormGroup>
   )
 }
 

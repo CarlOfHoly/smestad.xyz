@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useContext } from "react"
 import "../../../css/components/BurgerMenu/BurgerMenu.css"
+import { ThemeContext } from "../Theme/ThemeContext"
 
 interface Props {
   click: any
@@ -7,11 +8,13 @@ interface Props {
 }
 
 export const BurgerMenu: React.FC<Props> = ({ click, show }) => {
+  const { theme } = useContext(ThemeContext)
+
   return (
     <div onClick={click} className={"menu-btn " + (show ? "show" : "close")}>
-      <div className="btn-line"></div>
-      <div className="btn-line"></div>
-      <div className="btn-line"></div>
+      <div className={"btn-line " + theme}></div>
+      <div className={"btn-line " + theme}></div>
+      <div className={"btn-line " + theme}></div>
     </div>
   )
 }

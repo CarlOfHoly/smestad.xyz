@@ -1,7 +1,7 @@
-import React, { useState, useCallback, useContext, useEffect } from "react"
+import React, { useContext } from "react"
 import Header from "../Header/Header"
 import { ThemeContext } from "../Theme/ThemeContext"
-import "../../../css/components/layout.css"
+import "../../../css/components/Layout/layout.css"
 
 interface Props {
   children?: React.ReactNode

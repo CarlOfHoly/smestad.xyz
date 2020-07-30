@@ -3,8 +3,8 @@
 .menu-btn {
   position: absolute;
   z-index: 3;
-  right: 35px;
-  top: 35px;
+  right: 45px;
+  top: 39px;
   cursor: pointer;
   .easeOut();
 
@@ -12,8 +12,13 @@
     width: 28px;
     height: 3px;
     margin: 0 0 5px 0;
-    background: @snow-storm-3;
     .easeOut();
+    &.dark-mode {
+      background: @snow-storm-3;
+    }
+    &.light-mode {
+      background: @primary-dark-color;
+    }
   }
 
   &.close {
