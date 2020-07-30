@@ -3,12 +3,7 @@ import { BurgerMenu } from "../BurgerMenu/BurgerMenu"
 import Nav from "../Nav/Nav"
 import ThemeToggler from "./ThemeToggler"
 
-interface Props {
-  on: boolean
-  toggle: () => void
-}
-
-const Header: React.FC<Props> = ({ on, toggle }) => {
+const Header: React.FC = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false)
 
   const clicked = () => {
@@ -17,7 +12,7 @@ const Header: React.FC<Props> = ({ on, toggle }) => {
 
   return (
     <header>
-      <ThemeToggler on={on} toggle={toggle} />
+      <ThemeToggler />
       <BurgerMenu show={!showMenu} click={clicked} />
       <Nav show={showMenu} />
     </header>
