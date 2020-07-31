@@ -8,6 +8,7 @@ interface Props {
 
 const layout: React.FC<Props> = ({ children }) => {
   const { theme } = useContext(ThemeContext)
+  console.log("Layout is getting theme: " + theme)
 
   return <div className={"layout " + theme}>{children}</div>
 }
