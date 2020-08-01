@@ -7,7 +7,6 @@ import ThemeContextProvider from "../components/Theme/ThemeContext"
 import Spinner from "../components/UI/Spinner"
 import useSpinner from "../components/CustomHooks/useSpinner"
 
-import "../../css/pages/global.css"
 import "../../css/pages/index.css"
 
 const IndexPage: React.FC = () => {

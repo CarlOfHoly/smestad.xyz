@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState, useEffect } from "react"
 import { ThemeContext } from "../Theme/ThemeContext"
 import "../../../css/components/Layout/layout.css"
 
@@ -8,9 +8,16 @@ interface Props {
 
 const layout: React.FC<Props> = ({ children }) => {
   const { theme } = useContext(ThemeContext)
-  console.log("Layout is getting theme: " + theme)
+  const [isClient, setIsClient] = useState("false")
 
-  return <div className={"layout " + theme}>{children}</div>
+  useEffect(() => {
+    setIsClient("true")
+  }, [])
+  return (
+    <React.Fragment key={isClient}>
+      <div className={"layout " + theme}>{children}</div>
+    </React.Fragment>
+  )
 }
 
 export default layout
