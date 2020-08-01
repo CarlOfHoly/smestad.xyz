@@ -16,7 +16,7 @@ const ThemeContextProvider: React.FC<Props> = ({ children }) => {
   const fetchThemeFromLocalStorage = () => {
     try {
       console.log("Trying to fetch from local storage: ")
-      console.log("Current theme is: " + theme)
+      console.log(JSON.parse(windowGlobal.localStorage.getItem("theme")))
 
       return JSON.parse(windowGlobal.localStorage.getItem("theme"))
     } catch (e) {
