@@ -25,7 +25,8 @@ const IndexPage: React.FC = () => {
               <Page title="My Projects" titlePosition="left" />
               <Page title="Contact Me" titlePosition="left" />
             </FullPage>
-          </>
+          </>,
+          1000
         )}
       </Layout>
     </ThemeContextProvider>
