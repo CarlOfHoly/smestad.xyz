@@ -13,6 +13,7 @@ const layout: React.FC<Props> = ({ children }) => {
   useEffect(() => {
     setIsClient("true")
   }, [])
+
   return (
     <React.Fragment key={isClient}>
       <div className={"layout " + theme}>{children}</div>
