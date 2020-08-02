@@ -15,24 +15,14 @@ const windowGlobal = typeof window !== "undefined" && window
 const ThemeContextProvider: React.FC<Props> = ({ children }) => {
   const fetchThemeFromLocalStorage = () => {
     try {
-      console.log("Trying to fetch from local storage: ")
-      console.log(JSON.parse(windowGlobal.localStorage.getItem("theme")))
-
       return JSON.parse(windowGlobal.localStorage.getItem("theme"))
     } catch (e) {
-      console.log("Failed to fetch theme from local storage")
-      console.log(
-        "using default theme which is " + ThemeContextDefaultValue.theme
-      )
-
       return ThemeContextDefaultValue.theme
     }
   }
   const [theme, setTheme] = useState(fetchThemeFromLocalStorage())
 
   useEffect(() => {
-    console.log("Setting theme in local storage: " + theme)
-
     windowGlobal.localStorage.setItem("theme", JSON.stringify(theme))
   }, [theme])
 
