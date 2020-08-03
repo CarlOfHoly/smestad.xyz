@@ -10,6 +10,8 @@ const FullPage: React.FC<Props> = ({ children, scrollingSpeed }) => {
   return (
     <ReactFullpage
       scrollingSpeed={scrollingSpeed}
+      navigation
+      navigationPosition="left"
       render={() => (
         <ReactFullpage.Wrapper>
           {children.map((child, index) => (
