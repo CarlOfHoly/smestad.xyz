@@ -7,9 +7,9 @@ const ThemeToggler: React.FC = () => {
   const { theme, setTheme } = useContext(ThemeContext)
 
   const changeTheme = () => {
-    setTheme(prevTheme =>
-      prevTheme === "dark-mode" ? "light-mode" : "dark-mode"
-    )
+    setTheme(prevTheme => {
+      return prevTheme === "dark-mode" ? "light-mode" : "dark-mode"
+    })
   }
   const isDarkMode = theme === "dark-mode"
 
