@@ -10,7 +10,7 @@ It is primarily meant to be for learning, but the end goal will be a functioning
 
 ## Future
 
-Hopefully at some point I will include both graphql and Sanity for as a CMS for ny CV.
+Hopefully at some point I will include both graphql and Sanity for as a CMS for my CV.
 Furthermore Im wishing to include login and a dark theme. 
 
 ## To run the project 
