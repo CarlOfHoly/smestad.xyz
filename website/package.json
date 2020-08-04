@@ -36,6 +36,7 @@
     "@types/react": "^16.9.41",
     "@types/react-dom": "^16.9.8",
     "babel-eslint": "^10.1.0",
+    "concurrently": "^5.2.0",
     "eslint": "^7.3.1",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.11.0",
@@ -47,9 +48,9 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.8",
     "gh-pages": "^3.1.0",
+    "lodash": ">=4.17.19",
     "prettier": "^2.0.5",
-    "react-axe": "^3.5.3",
-    "lodash": ">=4.17.19"
+    "react-axe": "^3.5.3"
   },
   "keywords": [
     "gatsby"
@@ -69,7 +70,8 @@
     "start:css": "less-watch-compiler --config less.json",
     "build:css": "less-watch-compiler --run-once --config less.json",
     "remove:css": "find src -type f -name '*.css' -delete",
-    "deploy": "gatsby build && scp -r public root@smestad.xyz:/var/www/cabin/"
+    "deploy": "gatsby build && scp -r public root@smestad.xyz:/var/www/cabin/",
+    "dev": "concurrently --kill-others \"npm run develop \" \"npm run start:css\""
   },
   "repository": {
     "type": "git",
