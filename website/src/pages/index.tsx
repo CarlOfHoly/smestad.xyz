@@ -20,10 +20,29 @@ const IndexPage: React.FC = () => {
           <>
             <Header />
             <FullPage scrollingSpeed={1500}>
-              <Page title="Carl Smestad" titlePosition="left" />
-              <Page title="About Me" titlePosition="right" />
-              <Page title="My Projects" titlePosition="left" />
-              <Page title="Contact Me" titlePosition="left" />
+              <Page
+                title="Carl Smestad"
+                titlePosition="left"
+                byline="square"
+                ingress={"full-stack developer / /n procrastinator"}
+              />
+              <Page
+                title="About Me"
+                titlePosition="left"
+                byline="triangle"
+                ingress="click the triangles to check /n out my resume"
+              />
+              <Page
+                title="My Projects"
+                titlePosition="left"
+                byline="circle"
+                ingress="check out some of /n my projects"
+              />
+              <Page
+                title="Contact Me"
+                titlePosition="left"
+                ingress="full-stack developer / procrastinator"
+              />
             </FullPage>
           </>,
           1000
