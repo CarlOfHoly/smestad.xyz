@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react"
-import { ThemeContext } from "../Theme/ThemeContext"
+import { ThemeContext } from "../Utils/ThemeContext"
 import "../../../css/components/Layout/layout.css"
 
 interface Props {
@@ -7,12 +7,11 @@ interface Props {
 }
 
 const layout: React.FC<Props> = ({ children }) => {
-  const { theme, debugMode, setDebugMode } = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext)
   const [isClient, setIsClient] = useState("false")
 
   useEffect(() => {
     setIsClient("true")
-    setDebugMode(true)
 
     document.body.classList.add(theme)
     return () => {
@@ -21,11 +20,9 @@ const layout: React.FC<Props> = ({ children }) => {
   }, [theme])
 
   return (
-    !debugMode && (
-      <React.Fragment key={isClient}>
-        <div className={"layout " + theme}>{children}</div>
-      </React.Fragment>
-    )
+    <React.Fragment key={isClient}>
+      <div className={"layout " + theme}>{children}</div>
+    </React.Fragment>
   )
 }
 

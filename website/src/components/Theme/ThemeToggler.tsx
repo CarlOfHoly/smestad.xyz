@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { ThemeContext } from "./ThemeContext"
+import { ThemeContext } from "../Utils/ThemeContext"
 import { FormGroup, FormControlLabel, Switch } from "@material-ui/core"
 import "../../../css/components/Theme/ThemeToggler.css"
 
