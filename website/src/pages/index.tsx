@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Layout from "../components/Layout/layout"
 import FullPage from "../components/FullPage/FullPage"
 import Page from "../components/FullPage/Page"
@@ -6,12 +6,14 @@ import Header from "../components/Header/Header"
 import ThemeContextProvider from "../components/Theme/ThemeContext"
 import Spinner from "../components/UI/Spinner"
 import useSpinner from "../components/CustomHooks/useSpinner"
+import Circle from "../components/UI/Canvas/Circle"
 
 import "../../css/pages/index.css"
 
 const IndexPage: React.FC = () => {
   return (
     <ThemeContextProvider>
+      <Circle />
       <Layout>
         {useSpinner(
           <div className="spinner">
