@@ -7,11 +7,12 @@ interface Props {
 }
 
 const layout: React.FC<Props> = ({ children }) => {
-  const { theme } = useContext(ThemeContext)
+  const { theme, debugMode, setDebugMode } = useContext(ThemeContext)
   const [isClient, setIsClient] = useState("false")
 
   useEffect(() => {
     setIsClient("true")
+    setDebugMode(true)
 
     document.body.classList.add(theme)
     return () => {
@@ -20,9 +21,11 @@ const layout: React.FC<Props> = ({ children }) => {
   }, [theme])
 
   return (
-    <React.Fragment key={isClient}>
-      <div className={"layout " + theme}>{children}</div>
-    </React.Fragment>
+    !debugMode && (
+      <React.Fragment key={isClient}>
+        <div className={"layout " + theme}>{children}</div>
+      </React.Fragment>
+    )
   )
 }
 
