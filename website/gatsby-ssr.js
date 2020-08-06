@@ -1,4 +1,5 @@
-import React from "react"
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const React = require("react")
 
 exports.onRenderBody = ({ setPreBodyComponents }) => {
   setPreBodyComponents([
