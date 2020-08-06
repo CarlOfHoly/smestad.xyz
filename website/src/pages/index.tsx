@@ -45,7 +45,7 @@ const IndexPage: React.FC = () => {
               />
             </FullPage>
           </>,
-          1000
+          0
         )}
       </Layout>
     </ThemeContextProvider>
