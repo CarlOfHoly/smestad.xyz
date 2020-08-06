@@ -6,7 +6,6 @@ module.exports = {
   },
   pathPrefix: "/smestad.xyz",
   plugins: [
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -14,6 +13,29 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Portfolio website`,
+        short_name: `Portfolio`,
+        start_url: `/`,
+        background_color: `#020c18`,
+        theme_color: `#020c18`,
+        display: `standalone`,
+        icon: `src/images/favicon-32x32.png`,
+        cache_busting_mode: `none`,
+        crossOrigin: `use-credentials`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        workboxConfig: {
+          globPatterns: [`**/favicon-*`],
+        },
+      },
+    },
+    `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-typescript`,
