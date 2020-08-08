@@ -7,14 +7,23 @@ import ThemeContextProvider from "../components/Utils/ThemeContext"
 import Spinner from "../components/UI/Spinner"
 import useSpinner from "../components/CustomHooks/useSpinner"
 import Circle from "../components/UI/Canvas/Circle"
+import Canvas from "../components/UI/Canvas/Canvas"
 import Debug from "../components/Utils/Debug"
 
 import "../../css/pages/index.css"
 
 const IndexPage: React.FC = () => {
+  const draw = (ctx, frameCount) => {
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+    ctx.fillStyle = "#000000"
+    ctx.beginPath()
+    ctx.arc(50, 100, 20 * Math.sin(frameCount * 0.05) ** 2, 0, 2 * Math.PI)
+    ctx.fill()
+  }
   return (
     <ThemeContextProvider>
       <Layout>
+        <Canvas draw={draw} />
         <Circle />
         <Debug>
           {useSpinner(
