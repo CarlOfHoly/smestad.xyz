@@ -5,16 +5,17 @@ const useCanvas = draw => {
 
   useEffect(() => {
     const canvas = canvasRef.current
-    const context = canvas.getContext("2d")
-    let frameCount = 0
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+
+    const c = canvas.getContext("2d")
     let animationFrameId
 
-    const render = () => {
-      frameCount++
-      draw(context, frameCount)
-      animationFrameId = window.requestAnimationFrame(render)
+    const animate = () => {
+      draw(c)
+      animationFrameId = window.requestAnimationFrame(animate)
     }
-    render()
+    animate()
 
     return () => {
       window.cancelAnimationFrame(animationFrameId)
