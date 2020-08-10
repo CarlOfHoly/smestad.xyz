@@ -1,0 +1,44 @@
+name: Update website
+on:
+  push:
+    branches:
+      - master
+
+env:
+  CI: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12.8.1"
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: website
+
+      - name: Build CSS from less
+        run: npm run build:css
+        working-directory: website
+
+      - name: Run tests
+        run: npm run test
+        working-directory: website
+
+      - name: Deploy application
+        working-directory: website
+        env:
+          remote_key: ${{ secrets.deploy_key }}
+          remote_host: ${{ secrets.deploy_host }}
+          remote_user: ${{ secrets.deploy_user }}
+          local_dir: "public/"
+          remote_dir: "/var/www/cabin/public/"
+        run: |
+          npm run build
+          mkdir ~/.ssh
+          echo "$remote_key" > ~/.ssh/gh_actions_key
+          chmod 600 ~/.ssh/gh_actions_key 
+          rsync -avzr --delete -e "ssh -i ~/.ssh/gh_actions_key -o StrictHostKeyChecking=no" ${local_dir} ${remote_user}@${remote_host}:${remote_dir}

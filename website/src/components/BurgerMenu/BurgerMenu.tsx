@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import "../../../css/components/BurgerMenu/BurgerMenu.css"
-import { ThemeContext } from "../Theme/ThemeContext"
+import { ThemeContext } from "../Utils/ThemeContext"
 
 interface Props {
   click: any

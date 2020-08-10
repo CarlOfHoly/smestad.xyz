@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "smestad.xyz",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "My personal website",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Carl Smestad <carl.smestad@gmail.com>",
   "dependencies": {
     "@entur/sdk": "^1.6.0",
     "@fortawesome/fontawesome-free": "^5.13.1",
@@ -55,10 +55,10 @@
   "keywords": [
     "gatsby"
   ],
-  "license": "MIT",
+  "license": "GPL-3.0",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop --host=0.0.0.0",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react"
-import { ThemeContext } from "../Theme/ThemeContext"
+import { ThemeContext } from "../Utils/ThemeContext"
 import "../../../css/components/Layout/layout.css"
 
 interface Props {

@@ -1,4 +1,4 @@
-name: Update website
+name: Check build and tests
 on: [push, repository_dispatch]
 
 env:
@@ -24,18 +24,3 @@ jobs:
       - name: Run tests
         run: npm run test
         working-directory: website
-
-      - name: Build and deploy application
-        working-directory: website
-        env:
-          remote_key: ${{ secrets.deploy_key }}
-          remote_host: ${{ secrets.deploy_host }}
-          remote_user: ${{ secrets.deploy_user }}
-          local_dir: "public/"
-          remote_dir: "/var/www/cabin/public/"
-        run: |
-          npm run build
-          mkdir ~/.ssh
-          echo "$remote_key" > ~/.ssh/gh_actions_key
-          chmod 600 ~/.ssh/gh_actions_key 
-          rsync -avzr --delete -e "ssh -i ~/.ssh/gh_actions_key -o StrictHostKeyChecking=no" ${local_dir} ${remote_user}@${remote_host}:${remote_dir}

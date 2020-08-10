@@ -3,9 +3,10 @@ import Layout from "../components/Layout/layout"
 import FullPage from "../components/FullPage/FullPage"
 import Page from "../components/FullPage/Page"
 import Header from "../components/Header/Header"
-import ThemeContextProvider from "../components/Theme/ThemeContext"
+import ThemeContextProvider from "../components/Utils/ThemeContext"
 import Spinner from "../components/UI/Spinner"
 import useSpinner from "../components/CustomHooks/useSpinner"
+import Blobs from "../components/UI/Canvas/Blobs"
 
 import "../../css/pages/index.css"
 
@@ -13,6 +14,7 @@ const IndexPage: React.FC = () => {
   return (
     <ThemeContextProvider>
       <Layout>
+        <Blobs />
         {useSpinner(
           <div className="spinner">
             <Spinner />
