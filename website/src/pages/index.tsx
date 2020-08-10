@@ -7,7 +7,6 @@ import ThemeContextProvider from "../components/Utils/ThemeContext"
 import Spinner from "../components/UI/Spinner"
 import useSpinner from "../components/CustomHooks/useSpinner"
 import Blobs from "../components/UI/Canvas/Blobs"
-import Debug from "../components/Utils/Debug"
 
 import "../../css/pages/index.css"
 

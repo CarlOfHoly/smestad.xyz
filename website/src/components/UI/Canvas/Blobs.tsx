@@ -14,11 +14,12 @@ const Blobs = () => {
   const colours = [aurora1, aurora2, aurora3, snow3, frost1]
   const amount = 20
   const velocity = 0.2
+  const windowGlobal = typeof window !== "undefined" && window
 
-  for (let i of range(0, amount)) {
+  for (let _i of range(0, amount)) {
     const radius = getRandomInt(2, 3)
-    const x = getRandom(radius, innerWidth - radius)
-    const y = getRandom(radius, innerHeight - radius)
+    const x = getRandom(radius, windowGlobal.innerWidth - radius)
+    const y = getRandom(radius, windowGlobal.innerHeight - radius)
     const dx = getRandom(-velocity, velocity)
     const dy = getRandom(-velocity, velocity)
     const colour = colours[getRandomInt(0, colours.length)]
@@ -27,7 +28,7 @@ const Blobs = () => {
   }
 
   const draw = c => {
-    c.clearRect(0, 0, innerWidth, innerHeight)
+    c.clearRect(0, 0, windowGlobal.innerWidth, windowGlobal.innerHeight)
     circles.forEach(circle => circle.update(c))
   }
 
