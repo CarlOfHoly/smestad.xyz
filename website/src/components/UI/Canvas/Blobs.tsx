@@ -1,0 +1,39 @@
+import React from "react"
+import BlobEntity from "./BlobEntity"
+import Canvas from "./Canvas"
+import { range, getRandomInt, getRandom } from "../../../utils"
+
+const Blobs = () => {
+  const aurora1 = "#bf616a"
+  const aurora2 = "#d08770"
+  const aurora3 = "#ebcb8b"
+  const snow3 = "#eceff4"
+  const frost1 = "#8fbcbb"
+
+  const circles = []
+  const colours = [aurora1, aurora2, aurora3, snow3, frost1]
+  const amount = 20
+  const velocity = 0.2
+
+  for (let i of range(0, amount)) {
+    const radius = getRandomInt(2, 3)
+    const x = getRandom(radius, innerWidth - radius)
+    const y = getRandom(radius, innerHeight - radius)
+    const dx = getRandom(-velocity, velocity)
+    const dy = getRandom(-velocity, velocity)
+    const colour = colours[getRandomInt(0, colours.length)]
+
+    circles.push(new BlobEntity(x, dx, y, dy, radius, colour))
+  }
+
+  const draw = c => {
+    c.clearRect(0, 0, innerWidth, innerHeight)
+    circles.forEach(circle => circle.update(c))
+  }
+
+  return (
+    <Canvas draw={draw} className="blobs" style={{ position: "absolute" }} />
+  )
+}
+
+export default Blobs
