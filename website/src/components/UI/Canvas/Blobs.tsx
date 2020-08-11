@@ -12,7 +12,7 @@ const Blobs = () => {
 
   const circles = []
   const colours = [aurora1, aurora2, aurora3, snow3, frost1]
-  const amount = 20
+  const amount = 60
   const velocity = 0.2
   const windowGlobal = typeof window !== "undefined" && window
 
