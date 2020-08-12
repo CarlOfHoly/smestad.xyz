@@ -8,12 +8,42 @@ import Spinner from "../components/UI/Spinner"
 import useSpinner from "../components/CustomHooks/useSpinner"
 import Blobs from "../components/UI/Canvas/Blobs"
 
+import ring from "../images/ring.png"
+import triangle from "../images/triangle.png"
+import square from "../images/square.png"
+
 import "../../css/pages/index.css"
 
 const IndexPage: React.FC = () => {
   return (
     <ThemeContextProvider>
       <Layout>
+        <img
+          src={ring}
+          style={{
+            width: "700px",
+            position: "absolute",
+            filter: "grayscale(100%)",
+          }}
+        />
+
+        <img
+          src={square}
+          style={{
+            width: "400px",
+            position: "absolute",
+            filter: "invert(100%)",
+          }}
+        />
+
+        <img
+          src={triangle}
+          style={{
+            width: "400px",
+            position: "absolute",
+            filter: "invert(100%)",
+          }}
+        />
         <Blobs />
         {useSpinner(
           <div className="spinner">
