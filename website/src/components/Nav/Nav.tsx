@@ -4,21 +4,33 @@ import "../../../css/components/Nav/Nav.css"
 
 interface Props {
   show: boolean
+  click
 }
 
-const Nav: React.FC<Props> = ({ show }) => {
+const Nav: React.FC<Props> = ({ show, click }) => {
   const showItem = show ? "show" : "close"
 
   return (
     <nav className={"menu " + showItem}>
       <ul className={"menu-nav " + showItem}>
         <li className={"nav-item  " + showItem}>
-          <Link className={"nav-link "} to={"/"} activeClassName="current">
+          <Link
+            className={"nav-link "}
+            to={"/"}
+            activeClassName="current"
+            onClick={click}
+          >
             Home
           </Link>
         </li>
-        <li className={"nav-item " + showItem}>
-          <Link className={"nav-link "} to={"/about"} activeClassName="current">
+
+        <li className={"nav-item  " + showItem}>
+          <Link
+            className={"nav-link "}
+            to={"/about"}
+            activeClassName="current"
+            onClick={click}
+          >
             About
           </Link>
         </li>
@@ -27,26 +39,9 @@ const Nav: React.FC<Props> = ({ show }) => {
             className={"nav-link "}
             to={"/projects"}
             activeClassName="current"
+            onClick={click}
           >
             Projects
-          </Link>
-        </li>
-        <li className={"nav-item " + showItem}>
-          <Link
-            className={"nav-link "}
-            to={"/contact"}
-            activeClassName="current"
-          >
-            Contact
-          </Link>
-        </li>
-        <li className={"nav-item " + showItem}>
-          <Link
-            className={"nav-link "}
-            to={"/practice"}
-            activeClassName="current"
-          >
-            Practice
           </Link>
         </li>
       </ul>

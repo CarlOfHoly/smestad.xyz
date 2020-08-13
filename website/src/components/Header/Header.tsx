@@ -14,7 +14,7 @@ const Header: React.FC = () => {
     <header>
       <ThemeToggler />
       <BurgerMenu show={!showMenu} click={clicked} />
-      <Nav show={showMenu} />
+      <Nav show={showMenu} click={clicked} />
     </header>
   )
 }
