@@ -1,11 +1,36 @@
 @import (reference) "../../_globals.less";
 
+.dark-mode {
+  .menu-nav {
+    background: radial-gradient(
+      circle,
+      @secondary-dark-color,
+      @primary-dark-color
+    );
+  }
+  .nav-link {
+    color: @snow-storm-3;
+  }
+}
+
+.light-mode {
+  .menu-nav {
+    background: radial-gradient(
+      circle,
+      @snow-storm-3,
+      darken(@snow-storm-1, 10)
+    );
+  }
+  .nav-link {
+    color: @primary-dark-color;
+  }
+}
 .menu {
   position: fixed;
   top: 0;
   width: 100%;
-  opacity: 0.9;
   visibility: hidden;
+  z-index: 2;
 
   &.show {
     visibility: visible;
@@ -25,7 +50,6 @@
   &-nav {
     margin: 0;
     padding: 0;
-    background: darken(@primary-dark-color, 5);
     list-style: none;
     transform: translate3d(0, -100%, 0);
     .easeOut();
@@ -46,17 +70,16 @@
   .nav-link {
     display: inline-block;
     position: relative;
-    font-size: 30px;
+    font-size: 48px;
+    font-weight: 700;
     text-transform: uppercase;
     padding: 1rem 0;
-    font-weight: 400;
-    color: @snow-storm-3;
     text-decoration: none;
     .easeOut();
 
     &:hover,
     &.current {
-      color: @secondary-dark-color;
+      text-decoration: underline;
     }
   }
 }
