@@ -1,15 +1,34 @@
-import React from "react"
+import React, { useRef, useEffect } from "react"
+import { gsap, Linear } from "gsap"
+
 import "../../../css/components/FullPage/Page.css"
 
 interface Props {
   title: String
   titlePosition: String
-  byline?: String
+  shape?: String
   ingress?: String
 }
-const Page: React.FC<Props> = ({ title, titlePosition, byline, ingress }) => {
+const Page: React.FC<Props> = ({ title, titlePosition, shape, ingress }) => {
   const newTitle = title.split(" ")
   const splitIngress = ingress.split("/n")
+
+  useEffect(() => {
+    gsap.fromTo(".shape", 2, { y: 800 }, { y: 0 })
+    gsap.fromTo(".shape-copy", 2.1, { y: 800 }, { y: 0 })
+    gsap.fromTo(".shape", 2, { x: 0 }, { x: 300 })
+    gsap.fromTo(".shape-copy", 2.1, { x: 0 }, { x: 300 })
+    gsap.to(".shape", 36, {
+      rotation: 2160,
+      ease: Linear.easeNone,
+      repeat: -1,
+    })
+    gsap.to(".shape-copy", 30, {
+      rotation: 2160,
+      ease: Linear.easeNone,
+      repeat: -1,
+    })
+  }, [])
 
   return (
     <div className={"page " + titlePosition}>
