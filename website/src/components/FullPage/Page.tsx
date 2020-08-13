@@ -18,7 +18,21 @@ const Page: React.FC<Props> = ({ title, titlePosition, byline, ingress }) => {
           {title.toUpperCase()}
         </h1>
       ))}
-      <p className="byline">{byline}</p>
+
+      {shape && (
+        <>
+          <img
+            src={require("../../images/" + shape + ".png")}
+            className="shape"
+          />
+          <img
+            src={require("../../images/" + shape + ".png")}
+            className="shape-copy"
+          />
+        </>
+      )}
+
+      <p className="byline">{shape}</p>
       {splitIngress.map((ingressPart, index) => (
         <p key={index} className="ingress">
           {ingressPart}

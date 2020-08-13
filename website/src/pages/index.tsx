@@ -55,19 +55,19 @@ const IndexPage: React.FC = () => {
               <Page
                 title="Carl Smestad"
                 titlePosition="left"
-                byline="square"
+                shape="circle"
                 ingress={"full-stack developer / /n procrastinator"}
               />
               <Page
                 title="About Me"
                 titlePosition="left"
-                byline="triangle"
+                shape="triangle"
                 ingress="click the triangles to check /n out my resume"
               />
               <Page
                 title="My Projects"
                 titlePosition="left"
-                byline="circle"
+                shape="square"
                 ingress="check out some of /n my projects"
               />
               <Page
