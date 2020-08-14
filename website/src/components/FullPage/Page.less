@@ -21,7 +21,7 @@
     transform-origin: 50% 50%;
     position: absolute;
     width: 500px;
-    filter: grayscale(100%);
+    filter: grayscale(1);
     top: 0;
     left: 0;
     right: 0;
@@ -44,7 +44,10 @@
   }
   .triangle-one,
   .triangle-three {
-    opacity: 0.3;
+    opacity: 0.2;
+  }
+  .triangle-two {
+    opacity: 0.6;
   }
 
   .square-one,
@@ -52,7 +55,7 @@
   .square-three {
     transform-origin: 50% 50%;
     position: absolute;
-    width: 500px;
+    width: 400px;
     filter: grayscale(100%);
     top: 0;
     left: 500px;
@@ -63,7 +66,10 @@
   }
   .square-one,
   .square-three {
-    opacity: 0.3;
+    opacity: 0.2;
+  }
+  .square-two {
+    opacity: 0.6;
   }
 }
 
@@ -74,4 +80,16 @@
 
 .left {
   margin-left: 16vw;
+}
+
+.light-mode {
+  .triangle,
+  .circle,
+  .square {
+    &-one,
+    &-two,
+    &-three {
+      filter: grayscale(1) invert(1);
+    }
+  }
 }

@@ -1,9 +1,13 @@
-import React from "react"
+import React, { useContext } from "react"
 import BlobEntity from "./BlobEntity"
 import Canvas from "./Canvas"
+import Overlay from "../Overlay"
 import { range, getRandomInt, getRandom } from "../../../utils"
+import { ThemeContext } from "../../Utils/ThemeContext"
 
 const Blobs = () => {
+  const { theme } = useContext(ThemeContext)
+
   const aurora1 = "#bf616a"
   const aurora2 = "#d08770"
   const aurora3 = "#ebcb8b"
@@ -33,7 +37,10 @@ const Blobs = () => {
   }
 
   return (
-    <Canvas draw={draw} className="blobs" style={{ position: "absolute" }} />
+    <>
+      <Canvas draw={draw} className="blobs" style={{ position: "absolute" }} />
+      {theme === "dark-mode" && <Overlay />}
+    </>
   )
 }
 
