@@ -14,20 +14,32 @@ const Page: React.FC<Props> = ({ title, titlePosition, shape, ingress }) => {
   const splitIngress = ingress.split("/n")
 
   useEffect(() => {
-    gsap.fromTo(".shape", 2, { y: 800 }, { y: 0 })
-    gsap.fromTo(".shape-copy", 2.1, { y: 800 }, { y: 0 })
-    gsap.fromTo(".shape", 2, { x: 0 }, { x: 300 })
-    gsap.fromTo(".shape-copy", 2.1, { x: 0 }, { x: 300 })
-    gsap.to(".shape", 36, {
-      rotation: 2160,
-      ease: Linear.easeNone,
-      repeat: -1,
-    })
-    gsap.to(".shape-copy", 30, {
-      rotation: 2160,
-      ease: Linear.easeNone,
-      repeat: -1,
-    })
+    gsap.fromTo(
+      ".shape-one",
+      3,
+      {
+        rotation: 40,
+      },
+      { rotation: 50, repeat: -1, yoyo: true }
+    )
+
+    gsap.fromTo(
+      ".shape-two",
+      3,
+      {
+        rotation: 38,
+      },
+      { rotation: 52, repeat: -1, yoyo: true }
+    )
+
+    gsap.fromTo(
+      ".shape-three",
+      3,
+      {
+        rotation: 42,
+      },
+      { rotation: 48, repeat: -1, yoyo: true }
+    )
   }, [])
 
   return (
@@ -42,11 +54,15 @@ const Page: React.FC<Props> = ({ title, titlePosition, shape, ingress }) => {
         <>
           <img
             src={require("../../images/" + shape + ".png")}
-            className="shape"
+            className={shape + "-one"}
           />
           <img
             src={require("../../images/" + shape + ".png")}
-            className="shape-copy"
+            className={shape + "-two"}
+          />
+          <img
+            src={require("../../images/" + shape + ".png")}
+            className={shape + "-three"}
           />
         </>
       )}
