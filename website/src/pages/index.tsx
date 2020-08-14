@@ -7,6 +7,7 @@ import ThemeContextProvider from "../components/Utils/ThemeContext"
 import Spinner from "../components/UI/Spinner"
 import useSpinner from "../components/CustomHooks/useSpinner"
 import Blobs from "../components/UI/Canvas/Blobs"
+import Overlay from "../components/UI/Overlay"
 
 import "../../css/pages/index.css"
 
@@ -15,6 +16,7 @@ const IndexPage: React.FC = () => {
     <ThemeContextProvider>
       <Layout>
         <Blobs />
+        <Overlay />
         {useSpinner(
           <div className="spinner">
             <Spinner />
@@ -25,19 +27,19 @@ const IndexPage: React.FC = () => {
               <Page
                 title="Carl Smestad"
                 titlePosition="left"
-                byline="square"
+                shape="circle"
                 ingress={"full-stack developer / /n procrastinator"}
               />
               <Page
                 title="About Me"
                 titlePosition="left"
-                byline="triangle"
+                shape="triangle"
                 ingress="click the triangles to check /n out my resume"
               />
               <Page
                 title="My Projects"
                 titlePosition="left"
-                byline="circle"
+                shape="square"
                 ingress="check out some of /n my projects"
               />
               <Page

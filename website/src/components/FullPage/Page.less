@@ -14,6 +14,57 @@
     margin-bottom: 0px;
     margin-top: 0px;
   }
+
+  .circle-one,
+  .circle-two,
+  .circle-three {
+    transform-origin: 50% 50%;
+    position: absolute;
+    width: 500px;
+    filter: grayscale(100%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  .triangle-one,
+  .triangle-two,
+  .triangle-three {
+    transform-origin: 50% 50% 80% 50%;
+    position: absolute;
+    width: 500px;
+    filter: grayscale(100%);
+    top: 0;
+    left: 500px;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  .triangle-one,
+  .triangle-three {
+    opacity: 0.3;
+  }
+
+  .square-one,
+  .square-two,
+  .square-three {
+    transform-origin: 50% 50%;
+    position: absolute;
+    width: 500px;
+    filter: grayscale(100%);
+    top: 0;
+    left: 500px;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    transform: rotate(20deg);
+  }
+  .square-one,
+  .square-three {
+    opacity: 0.3;
+  }
 }
 
 .right {
