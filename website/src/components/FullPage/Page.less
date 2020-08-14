@@ -32,15 +32,19 @@
   .triangle-one,
   .triangle-two,
   .triangle-three {
-    transform-origin: 50% 50%;
+    transform-origin: 50% 50% 80% 50%;
     position: absolute;
-    width: 300px;
+    width: 500px;
     filter: grayscale(100%);
     top: 0;
-    left: 0;
+    left: 500px;
     right: 0;
     bottom: 0;
     margin: auto;
+  }
+  .triangle-one,
+  .triangle-three {
+    opacity: 0.3;
   }
 
   .square-one,
@@ -48,13 +52,18 @@
   .square-three {
     transform-origin: 50% 50%;
     position: absolute;
-    width: 300px;
+    width: 500px;
     filter: grayscale(100%);
     top: 0;
-    left: 0;
+    left: 500px;
     right: 0;
     bottom: 0;
     margin: auto;
+    transform: rotate(20deg);
+  }
+  .square-one,
+  .square-three {
+    opacity: 0.3;
   }
 }
 

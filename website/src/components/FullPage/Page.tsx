@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from "react"
-import { gsap, Linear } from "gsap"
+import React, { useEffect } from "react"
+import { gsap, Linear, Power0, Back } from "gsap"
 
 import "../../../css/components/FullPage/Page.css"
 
@@ -14,32 +14,76 @@ const Page: React.FC<Props> = ({ title, titlePosition, shape, ingress }) => {
   const splitIngress = ingress.split("/n")
 
   useEffect(() => {
-    gsap.fromTo(
-      ".shape-one",
-      3,
-      {
-        rotation: 40,
-      },
-      { rotation: 50, repeat: -1, yoyo: true }
+    const tl = gsap.timeline()
+
+    tl.fromTo([".circle-one"], 2, { y: 500, opacity: 0 }, { y: 0, opacity: 1 })
+    tl.fromTo(
+      [".circle-two", ".circle-three"],
+      2,
+      { y: 500, opacity: 0 },
+      { y: 0, opacity: 0.3 },
+      "-=1.9"
+    )
+    tl.to([".circle-one"], 6, { x: 300, ease: Back.easeOut.config(1.7) }, "+=1")
+    tl.to(
+      [".circle-two", ".circle-three"],
+      6,
+      { x: 300, ease: Back.easeOut.config(1.7) },
+      "-=5.9"
     )
 
     gsap.fromTo(
-      ".shape-two",
-      3,
+      [".triangle-one", ".square-one"],
+      7,
       {
-        rotation: 38,
+        rotation: -10,
       },
-      { rotation: 52, repeat: -1, yoyo: true }
+      {
+        rotation: 10,
+        repeat: -1,
+        yoyo: true,
+        ease: Power0.easeNone,
+      }
     )
 
     gsap.fromTo(
-      ".shape-three",
-      3,
+      [".triangle-two", ".square-two"],
+      7,
       {
-        rotation: 42,
+        rotation: -15,
       },
-      { rotation: 48, repeat: -1, yoyo: true }
+      { rotation: 15, repeat: -1, yoyo: true, ease: Power0.easeNone }
     )
+
+    gsap.fromTo(
+      [".triangle-three", ".square-three"],
+      7,
+      {
+        rotation: -20,
+      },
+      { rotation: 20, repeat: -1, yoyo: true, ease: Power0.easeNone }
+    )
+
+    gsap.to(".circle-one", 55, {
+      rotation: 2160,
+      ease: Linear.easeNone,
+      repeat: -1,
+      paused: false,
+    })
+
+    gsap.to(".circle-two", 44, {
+      rotation: 2160,
+      ease: Linear.easeNone,
+      repeat: -1,
+      paused: false,
+    })
+
+    gsap.to(".circle-three", 40, {
+      rotation: 2160,
+      ease: Linear.easeNone,
+      repeat: -1,
+      paused: false,
+    })
   }, [])
 
   return (
