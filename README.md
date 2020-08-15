@@ -1,7 +1,7 @@
 # smestad.xyz
 
 Here you can find the code for my website, smestad.xyz.
-It is a open source project, so feel free to use any code here as long as you follow the MIT license code of conduct
+It is a open source project, so feel free to use any code here as long as you follow the GPL license code of conduct
 
 ## About the project
 
