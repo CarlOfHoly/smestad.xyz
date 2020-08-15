@@ -72,11 +72,7 @@ const FullPage: React.FC<Props> = ({ children, scrollingSpeed }) => {
       onLeave={() => {
         whenLeaving()
       }}
-      afterLoad={(direction, origin, destination) => {
-        console.log(direction.index)
-        console.log(origin.index)
-        console.log(destination)
-
+      afterLoad={(origin, destination) => {
         if (origin.index !== 0 || destination != null) {
           afterLoaded()
         }

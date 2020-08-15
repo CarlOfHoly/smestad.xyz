@@ -50,3 +50,24 @@
     }
   }
 }
+
+@media only screen and (max-width: @mediaSmMax) {
+  #fp-nav {
+    position: fixed;
+    width: 100% !important;
+    height: 100px !important;
+    bottom: -40px !important;
+    left: 50% !important;
+    right: 0 !important;
+    top: auto !important;
+
+    ul {
+      transform-origin: left !important;
+      transform: rotate(-90deg) !important;
+    }
+  }
+}
+
+@media only screen and (min-width: @mediaSmMax) {
+  opacity: 1;
+}
