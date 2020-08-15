@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import { gsap, Linear, Power0, Back } from "gsap"
 
 import "../../../css/components/FullPage/Page.css"
+import "animate.css"
 
 interface Props {
   title: String
