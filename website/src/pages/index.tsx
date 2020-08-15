@@ -26,7 +26,7 @@ const IndexPage: React.FC = () => {
                 title="Carl Smestad"
                 titlePosition="left"
                 shape="circle"
-                ingress={"full-stack developer / /n procrastinator"}
+                ingress={"full-stack developer / /n linux enthusiast"}
               />
               <Page
                 title="About Me"
@@ -43,7 +43,7 @@ const IndexPage: React.FC = () => {
               <Page
                 title="Contact Me"
                 titlePosition="left"
-                ingress="full-stack developer / procrastinator"
+                ingress="feel free to contact me"
               />
             </FullPage>
           </>,

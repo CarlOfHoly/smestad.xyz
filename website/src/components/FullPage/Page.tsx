@@ -1,8 +1,8 @@
 import React, { useEffect } from "react"
-import { gsap, Linear, Power0, Back } from "gsap"
+import { gsap, Expo, Linear, Power0 } from "gsap"
+import Byline from "../UI/Byline"
 
 import "../../../css/components/FullPage/Page.css"
-import "animate.css"
 
 interface Props {
   title: String
@@ -17,24 +17,29 @@ const Page: React.FC<Props> = ({ title, titlePosition, shape, ingress }) => {
   useEffect(() => {
     const tl = gsap.timeline()
 
-    tl.fromTo([".circle-one"], 2, { y: 500, opacity: 0 }, { y: 0, opacity: 1 })
+    tl.fromTo(
+      [".circle-one"],
+      4,
+      { y: 500, opacity: 0, ease: Expo.easeInOut },
+      { y: 0, opacity: 1, ease: Expo.easeInOut }
+    )
     tl.fromTo(
       [".circle-two", ".circle-three"],
-      2,
-      { y: 500, opacity: 0 },
-      { y: 0, opacity: 0.3 },
-      "-=1.9"
+      4,
+      { y: 500, opacity: 0, ease: Expo.easeInOut },
+      { y: 0, opacity: 0.3, ease: Expo.easeInOut },
+      "-=3.9"
     )
-    tl.to([".circle-one"], 6, { x: 300, ease: Back.easeOut.config(1.7) }, "+=1")
+    tl.to([".circle-one"], 6, { x: 300, ease: Expo.easeInOut }, "-=2")
     tl.to(
       [".circle-two", ".circle-three"],
       6,
-      { x: 300, ease: Back.easeOut.config(1.7) },
+      { x: 300, ease: Expo.easeInOut },
       "-=5.9"
     )
 
     gsap.fromTo(
-      [".triangle-one", ".square-one"],
+      [".triangle-one"],
       7,
       {
         rotation: -10,
@@ -48,7 +53,20 @@ const Page: React.FC<Props> = ({ title, titlePosition, shape, ingress }) => {
     )
 
     gsap.fromTo(
-      [".triangle-two", ".square-two"],
+      [".square-one"],
+      7,
+      {
+        rotation: 35,
+      },
+      {
+        rotation: 55,
+        repeat: -1,
+        yoyo: true,
+        ease: Power0.easeNone,
+      }
+    )
+    gsap.fromTo(
+      [".triangle-two"],
       7,
       {
         rotation: -15,
@@ -57,12 +75,46 @@ const Page: React.FC<Props> = ({ title, titlePosition, shape, ingress }) => {
     )
 
     gsap.fromTo(
-      [".triangle-three", ".square-three"],
+      [".triangle-three"],
       7,
       {
         rotation: -20,
       },
       { rotation: 20, repeat: -1, yoyo: true, ease: Power0.easeNone }
+    )
+
+    gsap.fromTo(
+      [".square-two"],
+      7,
+      {
+        rotation: 30,
+      },
+      { rotation: 60, repeat: -1, yoyo: true, ease: Power0.easeNone }
+    )
+
+    gsap.fromTo(
+      [".square-three"],
+      7,
+      {
+        rotation: 25,
+      },
+      { rotation: 65, repeat: -1, yoyo: true, ease: Power0.easeNone }
+    )
+
+    tl.fromTo(
+      [".overlay", ".blobs"],
+      2,
+      { y: 900, opacity: 0 },
+      { y: 0, opacity: 1 },
+      "-=2"
+    )
+
+    tl.fromTo(
+      [".menu-btn", "#fp-nav", ".theme-toggler"],
+      1,
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1 },
+      "-=0.5"
     )
 
     gsap.to(".circle-one", 55, {
@@ -112,7 +164,9 @@ const Page: React.FC<Props> = ({ title, titlePosition, shape, ingress }) => {
         </>
       )}
 
-      <p className="byline">{shape}</p>
+      <div className={"" + shape}>
+        <Byline />
+      </div>
       {splitIngress.map((ingressPart, index) => (
         <p key={index} className="ingress">
           {ingressPart}
