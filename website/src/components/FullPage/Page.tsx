@@ -13,6 +13,7 @@ interface Props {
 const Page: React.FC<Props> = ({ title, titlePosition, shape, ingress }) => {
   const newTitle = title.split(" ")
   const splitIngress = ingress.split("/n")
+  const windowGlobal = typeof window !== "undefined" && window
 
   useEffect(() => {
     const tl = gsap.timeline()
@@ -23,6 +24,7 @@ const Page: React.FC<Props> = ({ title, titlePosition, shape, ingress }) => {
       { y: 500, opacity: 0, ease: Expo.easeInOut },
       { y: 0, opacity: 1, ease: Expo.easeInOut }
     )
+
     tl.fromTo(
       [".circle-two", ".circle-three"],
       4,
@@ -30,13 +32,24 @@ const Page: React.FC<Props> = ({ title, titlePosition, shape, ingress }) => {
       { y: 0, opacity: 0.3, ease: Expo.easeInOut },
       "-=3.9"
     )
-    tl.to([".circle-one"], 6, { x: 300, ease: Expo.easeInOut }, "-=2")
-    tl.to(
-      [".circle-two", ".circle-three"],
-      6,
-      { x: 300, ease: Expo.easeInOut },
-      "-=5.9"
-    )
+
+    if (windowGlobal.innerWidth > 600) {
+      tl.to([".circle-one"], 6, { x: 300, ease: Expo.easeInOut }, "-=2")
+      tl.to(
+        [".circle-two", ".circle-three"],
+        6,
+        { x: 300, ease: Expo.easeInOut },
+        "-=5.9"
+      )
+    } else {
+      tl.to([".circle-one"], 6, { y: -150, ease: Expo.easeInOut }, "-=2")
+      tl.to(
+        [".circle-two", ".circle-three"],
+        6,
+        { y: -150, ease: Expo.easeInOut },
+        "-=5.9"
+      )
+    }
 
     gsap.fromTo(
       [".triangle-one"],

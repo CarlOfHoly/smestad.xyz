@@ -1,14 +1,19 @@
+@import (reference) "../../_globals.less";
+
 .page {
   font-size: 40px;
   .title {
+    opacity: 0;
     margin-bottom: 0px;
     margin-top: 0px;
   }
   .byline {
+    opacity: 0;
     margin-bottom: 16px;
     margin-top: 0px;
   }
   .ingress {
+    opacity: 0;
     font-size: 24px;
     font-weight: 300;
     margin-bottom: 0px;
@@ -90,6 +95,51 @@
     &-two,
     &-three {
       filter: grayscale(1) invert(1);
+    }
+  }
+}
+
+@media only screen and (max-width: @mediaSmMax) {
+  .fp-tableCell {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .page {
+    font-size: 32px;
+    margin-bottom: 160px;
+
+    &.left {
+      margin-left: 0;
+    }
+
+    .ingress {
+      font-size: 16px;
+    }
+    .circle {
+      &-one,
+      &-two,
+      &-three {
+        width: 300px;
+      }
+    }
+    .triangle {
+      &-one,
+      &-two,
+      &-three {
+        width: 300px;
+        left: 0;
+        bottom: 40vh;
+      }
+    }
+    .square {
+      &-one,
+      &-two,
+      &-three {
+        width: 220px;
+        left: 0;
+        bottom: 40vh;
+      }
     }
   }
 }
