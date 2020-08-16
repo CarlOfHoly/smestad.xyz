@@ -13,8 +13,7 @@ interface Props {
 const Page: React.FC<Props> = ({ title, titlePosition, shape, ingress }) => {
   const newTitle = title.split(" ")
   const splitIngress = ingress.split("/n")
-
-  const windowWidth = window.innerWidth
+  const windowGlobal = typeof window !== "undefined" && window
 
   useEffect(() => {
     const tl = gsap.timeline()
@@ -34,7 +33,7 @@ const Page: React.FC<Props> = ({ title, titlePosition, shape, ingress }) => {
       "-=3.9"
     )
 
-    if (windowWidth > 600) {
+    if (windowGlobal.innerWidth > 600) {
       tl.to([".circle-one"], 6, { x: 300, ease: Expo.easeInOut }, "-=2")
       tl.to(
         [".circle-two", ".circle-three"],
