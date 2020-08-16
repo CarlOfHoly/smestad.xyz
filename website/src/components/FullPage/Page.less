@@ -1,14 +1,19 @@
+@import (reference) "../../_globals.less";
+
 .page {
   font-size: 40px;
   .title {
+    opacity: 0;
     margin-bottom: 0px;
     margin-top: 0px;
   }
   .byline {
+    opacity: 0;
     margin-bottom: 16px;
     margin-top: 0px;
   }
   .ingress {
+    opacity: 0;
     font-size: 24px;
     font-weight: 300;
     margin-bottom: 0px;
@@ -93,3 +98,21 @@
     }
   }
 }
+
+//@media only screen and (max-width: @mediaSmMax) {
+//.page {
+//font-size: 32px;
+//.title {
+//}
+//.ingress {
+//font-size: 16px;
+//}
+//.circle {
+//&-one,
+//&-two,
+//&-three {
+//width: 300px;
+//}
+//}
+//}
+//}
