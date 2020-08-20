@@ -187,3 +187,9 @@ export const afterRendering = () => {
     "-=0.4"
   )
 }
+
+export const introduceBurgerMenu = () => {
+  const tl = gsap.timeline()
+
+  tl.fromTo(".menu-btn", 1, { y: 20, opacity: 0 }, { y: 0, opacity: 1 })
+}
