@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import Canvas from "./Canvas"
-import { range, getRandomInt, getRandom } from "../../../utils"
+import { range, getRandomInt } from "../../../utils"
+import useWindowsSize from "../../CustomHooks/useWindowSize"
 
 const GalacticTrails = () => {
   const colours = ["#2185C5", "#7ECEFD", "#FFF6E5", "#FF7F66"]
-  const windowGlobal = typeof window !== "undefined" && window
+  const [width, height] = useWindowsSize()
 
   let mouseDown = false
   useEffect(() => {
@@ -57,11 +58,11 @@ const GalacticTrails = () => {
       const extraDimensions = 300
 
       const x =
-        Math.random() * (windowGlobal.innerWidth + extraDimensions) -
-        (windowGlobal.innerWidth + extraDimensions) / 2
+        Math.random() * (width + extraDimensions) -
+        (width + extraDimensions) / 2
       const y =
-        Math.random() * (windowGlobal.innerHeight + extraDimensions) -
-        (windowGlobal.innerHeight + extraDimensions) / 2
+        Math.random() * (height + extraDimensions) -
+        (height + extraDimensions) / 2
 
       const colour = colours[getRandomInt(0, colours.length - 1)]
       particles.push(new Particle(x, y, radius, colour))
@@ -72,10 +73,10 @@ const GalacticTrails = () => {
   let alpha = 1
   const draw = c => {
     c.fillStyle = "rgba(10, 10, 10, " + alpha + ")"
-    c.fillRect(0, 0, windowGlobal.innerWidth, windowGlobal.innerHeight)
+    c.fillRect(0, 0, width, height)
 
     c.save()
-    c.translate(windowGlobal.innerWidth / 2, windowGlobal.innerHeight / 2)
+    c.translate(width / 2, height / 2)
     c.rotate(radians)
     particles.forEach(particle => particle.update(c))
     c.restore()
