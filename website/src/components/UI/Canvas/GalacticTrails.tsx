@@ -1,48 +1,44 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import Canvas from "./Canvas"
 import { range, getRandomInt, getRandom } from "../../../utils"
 
-const Blobs = () => {
-  const aurora1 = "#bf616a"
-  const aurora2 = "#d08770"
-  const aurora3 = "#ebcb8b"
-  const snow3 = "#eceff4"
-  const frost1 = "#8fbcbb"
-
-  const circles = []
-  const colours = [aurora1, aurora2, aurora3, snow3, frost1]
-  const amount = 60
-  const velocity = 0.2
+const GalacticTrails = () => {
+  const colours = ["#2185C5", "#7ECEFD", "#FFF6E5", "#FF7F66"]
   const windowGlobal = typeof window !== "undefined" && window
 
-  const mouse = {
-    x: innerWidth / 2,
-    y: innerHeight / 2,
-  }
-
+  let mouseDown = false
   useEffect(() => {
-    addEventListener("mousemove", e => {
-      mouse.x = e.clientX
-      mouse.y = e.clientY
+    addEventListener("mousedown", () => {
+      mouseDown = true
     })
-  })
 
-  class Momone {
+    addEventListener("mouseup", () => {
+      mouseDown = false
+    })
+
+    addEventListener("resize", () => {
+      init()
+    })
+  }, [])
+
+  class Particle {
     x: any
     y: any
     radius: any
-    color: any
-    constructor(x, y, radius, color) {
+    colour: any
+    constructor(x, y, radius, colour) {
       this.x = x
       this.y = y
       this.radius = radius
-      this.color = color
+      this.colour = colour
     }
 
     draw(c) {
       c.beginPath()
       c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
-      c.fillStyle = this.color
+      c.shadowColor = this.colour
+      c.shadowBlur = 10
+      c.fillStyle = this.colour
       c.fill()
       c.closePath()
     }
@@ -51,21 +47,49 @@ const Blobs = () => {
     }
   }
 
-  for (let _i of range(0, amount)) {
-    const radius = getRandomInt(2, 3)
-    const x = getRandom(radius, windowGlobal.innerWidth - radius)
-    const y = getRandom(radius, windowGlobal.innerHeight - radius)
-    const dx = getRandom(-velocity, velocity)
-    const dy = getRandom(-velocity, velocity)
-    const colour = colours[getRandomInt(0, colours.length)]
+  let particles
+  const init = () => {
+    particles = []
+    const amount = 400
+
+    for (let _i in range(0, amount)) {
+      const radius = getRandomInt(1, 2)
+      const extraDimensions = 300
+
+      const x =
+        Math.random() * (windowGlobal.innerWidth + extraDimensions) -
+        (windowGlobal.innerWidth + extraDimensions) / 2
+      const y =
+        Math.random() * (windowGlobal.innerHeight + extraDimensions) -
+        (windowGlobal.innerHeight + extraDimensions) / 2
+
+      const colour = colours[getRandomInt(0, colours.length - 1)]
+      particles.push(new Particle(x, y, radius, colour))
+    }
   }
 
+  let radians = 0
+  let alpha = 1
   const draw = c => {
-    c.clearRect(0, 0, windowGlobal.innerWidth, windowGlobal.innerHeight)
-    c.fillText("Hello", mouse.x, mouse.y)
-    //circles.forEach(circle => circle.update(c))
+    c.fillStyle = "rgba(10, 10, 10, " + alpha + ")"
+    c.fillRect(0, 0, windowGlobal.innerWidth, windowGlobal.innerHeight)
+
+    c.save()
+    c.translate(windowGlobal.innerWidth / 2, windowGlobal.innerHeight / 2)
+    c.rotate(radians)
+    particles.forEach(particle => particle.update(c))
+    c.restore()
+
+    radians += 0.005
+
+    if (mouseDown && alpha >= 0.05) {
+      alpha -= 0.01
+    } else if (!mouseDown && alpha < 1) {
+      alpha += 0.01
+    }
   }
 
+  init()
   return (
     <>
       <Canvas draw={draw} className="blobs" style={{ position: "absolute" }} />
@@ -73,4 +97,4 @@ const Blobs = () => {
   )
 }
 
-export default Blobs
+export default GalacticTrails
