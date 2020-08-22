@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import Canvas from "./Canvas"
-import { range, getRandomInt } from "../../../utils"
+import { range } from "../../../utils"
 import useWindowsSize from "../../CustomHooks/useWindowSize"
 
 const Tron = () => {
@@ -65,7 +65,6 @@ const Tron = () => {
   let hueRadians = 0
   const generateRing = () => {
     hue = Math.sin(hueRadians)
-    console.log(hue)
 
     for (let i in range(0, amount)) {
       const radian = (Math.PI * 2) / amount
