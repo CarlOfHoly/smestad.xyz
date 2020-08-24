@@ -35,6 +35,16 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: "gatsby-source-sanity",
+      options: {
+        projectId: "rub9z0o7",
+        dataset: "production",
+        token: process.env.SANITY_TOKEN,
+        watchMode: true,
+        overlayDrafts: true,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
