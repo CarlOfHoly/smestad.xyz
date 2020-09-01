@@ -1,0 +1,33 @@
+@import (reference) "../../_globals.less";
+
+.project {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  flex-direction: column;
+  .gradient(linear; @primary-dark-color, @secondary-dark-color);
+
+  &Reverse {
+    .gradient(linear; @secondary-dark-color, @primary-dark-color );
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  & > .title {
+    margin-left: 16vw;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 600;
+    font-size: 80px;
+  }
+
+  & > .ingress {
+    margin-left: 16vw;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 300;
+    font-size: 24px;
+  }
+}

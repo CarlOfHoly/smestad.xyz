@@ -18,6 +18,8 @@ const FullPage: React.FC<Props> = ({ children, scrollingSpeed }) => {
       }}
       afterLoad={(_origin, _destination, direction) => {
         if (direction != null) {
+          console.log("hello")
+
           afterLoaded()
         }
       }}
