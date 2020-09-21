@@ -23,7 +23,12 @@ const ThemeContextProvider: React.FC<Props> = ({ children }) => {
   const [theme, setTheme] = useState(fetchThemeFromLocalStorage())
 
   useEffect(() => {
-    windowGlobal.localStorage.setItem("theme", JSON.stringify(theme))
+    if (theme) {
+      windowGlobal.localStorage.setItem("theme", JSON.stringify(theme))
+    } else {
+      setTheme(ThemeContextDefaultValue.theme)
+      windowGlobal.localStorage.setItem("theme", JSON.stringify(theme))
+    }
   }, [theme])
 
   return (
